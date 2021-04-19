@@ -78,7 +78,7 @@
 
 ---
 
-<h2 align="center">Arquivos no Notion 📋</h2>
+<h2 align="center">Notion Files 📋</h2>
 
 - [Flutter Trail](https://www.notion.so/Trilha-Flutter-a306b8d8751b4f76a7a1fc8f29db6d65) 🚀
 
