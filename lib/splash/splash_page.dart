@@ -10,7 +10,7 @@ class SplashPage extends StatelessWidget {
         decoration: BoxDecoration(
           gradient: AppGradients.linear,
         ),
-        child: Image.asset(AppImages.logo),
+        child: Center(child: Image.asset(AppImages.logo)),
       ),
     );
   }
