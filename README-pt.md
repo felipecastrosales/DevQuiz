@@ -49,7 +49,7 @@
 
 ---
 
-<h2 align="center">Functionalities 🛠️</h2>
+<h2 align="center">Funcionalidades 🛠️</h2>
 
    <p>
    
