@@ -4,6 +4,15 @@
 
 <h1 align="center">DevQuiz</h1>
 
+- ✅ Liftoff 💪
+- 🔄 Maaximum Speed 🏃‍♂️
+- 🔄 In Orbit 👨‍🚀 
+- 🔄 Landing 🔥
+- 🔄 Surface Exploration ⚡
+- 🔄 Accelerating your Career 🚀
+
+---
+
 <h2 align="center">Topics 📋</h2>
 
    <p>
