@@ -21,15 +21,15 @@ class AppColors {
   static final Color levelButtonEasy = Color(0xFFEBEBFC);
   static final Color levelButtonMiddle = lightGreen;
   static final Color levelButtonHard = Color(0xFFF5EFE9);
-  static final Color levelButtonPerito = lightRed;
+  static final Color levelButtonExpert = lightRed;
 
   static final Color levelButtonBorderEasy = Color(0xFFCECEF5);
   static final Color levelButtonBorderMiddle = green;
   static final Color levelButtonBorderHard = Color(0xFFE5D5C5);
-  static final Color levelButtonBorderPerito = red;
+  static final Color levelButtonBorderExpert = red;
 
   static final Color levelButtonTextEasy = Color(0xFF6363DB);
   static final Color levelButtonTextMiddle = darkGreen;
   static final Color levelButtonTextHard = Color(0xFFE8891C);
-  static final Color levelButtonTextPerito = darkRed;
+  static final Color levelButtonTextExpert = darkRed;
 }
