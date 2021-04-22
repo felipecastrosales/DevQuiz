@@ -13,9 +13,7 @@
                     {"title": "+/-"},
                     {"title": "Flutter is sensational", "isRight": true}
                 ]
-            }
-        ],
-        "questions": [
+            },
             {
                 "title": "You are liking Flutter?",
                 "answers": [
