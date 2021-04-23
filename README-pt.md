@@ -8,7 +8,7 @@
 - ✅ Maximum Speed 🏃‍♂️
 - ✅ In Orbit 👨‍🚀 
 - ✅ Landing 🔥
-- 🔄 Surface Exploration ⚡
+- ✅ Surface Exploration ⚡
 - 🔄 Acelerando sua Carreira 🚀
 
 ---
@@ -34,17 +34,18 @@
 <h2 align="center">Sobre 📖</h2>
    
 <p align="center">
-   <br>
-   <br>
-   <br>
-   <a href=""></a>
+   Esse projeto foi desenvolvido na Next Level Week, uma semana intensa de estudos, networking, amizade, trabalho em grupo, acompanhado de um projeto sensacional desenvolvido pela Rocketseat do dia 19 ao dia 25 de Abril.<br>
+   Essa aplicação tem como intuito ser um Quiz para programadores intensificarem seu conhecimento em programação através dos exercícios propostos pela aplicação, onde você tem a interatividade de perguntas e respostas.<br>
+   É um projeto básico até aqui, mas que abre muitas portas para ideias, features, parcerias, e muito aprendizado que irei levar para o meu profissional.Mais uma semana NLW concluída com sucesso e muita presença na comunidade, ajudando outras pessoas e tirando dúvidas das mesmas. Foi incrível!<br>
 </p>
 
 ---
 
 <h2 align="center">Preview 📱</h2>
 
-   > * 
+   <p align="center">
+      <img src="assets/images/devquiz.gif" width="400" alt="DevQuiz Demo">
+   </p>
 
 ---
 
@@ -62,15 +63,14 @@
 
    <p>
    
-- 
-    -  ,
-    -  ,
-    -  ,
-    -  .
-
-- 
-
-- 
+- Quiz 
+    - Perguntas,
+    - Respostas,
+    - Feedback para o usuário,
+    - Ranking e Score, 
+    - Resultados
+    - Compartilhamento de Resultados...
+- Entre várias outras coisas incríveis!
   
    </p>
 
@@ -79,10 +79,10 @@
 <h2 align="center">Desafios e Aprendizados no Caminho 🤯</h2>
 
    <p>
-    <br> 
-    <a href=""></a>  <br>
-    <br>
-    <br>
+   Esse projeto foi desafiador pra mim e para toda a comunidade. Um aplicativo simples, mas que foi bem estruturado e organizado.
+   Tive vários erros no caminho, mas já percebo que estou muito mais maduro com os erros que cometia antes, me sentindo mais confiante e seguro do que nunca sobre o que faço, e essa semana da NLW me ajudou bastante e analisar e ver os caminhos onde posso e quero seguir.<br> 
+   A comunidade no Discord do evento foi sensacional, muitas pessoas com boas intenções e querendo evoluir uns com os outros...<br>
+   Ahhh, já estou com saudades! Ansioso por novos eventos!<br>
    </p>
 
 ---
@@ -116,15 +116,15 @@
 <h2 align="center">Como Contribuir 💪</h2>
 
    ```
-   - Fork the project 
+   - Fork o projeto 
 
-   - Create a new branch with your changes:
+   - Cria uma nova branch com suas mudanças:
    $ git checkout -b my-feature
 
-   - Save your changes and create a commit message telling you what you did:
+   - Salve suas mudanças e crie uma mensagem de commit falando o que fez:
    $ git commit -m "feature: My new feature"
 
-   - Submit your changes:
+   - Envie suas mudanças:
    $ git push origin my-feature
    ```
 
