@@ -7,13 +7,13 @@ class AnswerWidget extends StatelessWidget {
   final AnswerModel answer;
   final bool isSelected;
   final bool disabled;
-  final VoidCallback onTap;
+  final ValueChanged<bool> onTap;
 
   const AnswerWidget({
     Key? key,
     required this.answer,
     required this.onTap,
-    this.isSelected = false, 
+    this.isSelected = false,
     this.disabled = false,
   }) : super(key: key);
 
@@ -41,17 +41,19 @@ class AnswerWidget extends StatelessWidget {
       child: IgnorePointer(
         ignoring: disabled,
         child: GestureDetector(
-          onTap: onTap,
+          onTap: () {
+            onTap(answer.isRight);
+          },
           child: Container(
             padding: EdgeInsets.all(16),
             decoration: BoxDecoration(
               color: isSelected ? _selectedColorCardRight : AppColors.white,
               borderRadius: BorderRadius.circular(10),
-              border: Border.fromBorderSide(BorderSide(
-                color: isSelected 
-                  ? _selectedBorderCardRight 
-                  : AppColors.border
-                ),
+              border: Border.fromBorderSide(
+                BorderSide(
+                    color: isSelected
+                        ? _selectedBorderCardRight
+                        : AppColors.border),
               ),
             ),
             child: Row(
@@ -59,10 +61,10 @@ class AnswerWidget extends StatelessWidget {
               children: [
                 Expanded(
                   child: Text(
-                    answer.title, 
-                    style: isSelected 
-                      ? _selectedTextStyleRight 
-                      : AppTextStyles.body,
+                    answer.title,
+                    style: isSelected
+                        ? _selectedTextStyleRight
+                        : AppTextStyles.body,
                   ),
                 ),
                 SizedBox(width: 16),
@@ -74,15 +76,16 @@ class AnswerWidget extends StatelessWidget {
                     borderRadius: BorderRadius.circular(500),
                     border: Border.fromBorderSide(
                       BorderSide(
-                        color: isSelected 
-                          ? _selectedBorderRight 
-                          : AppColors.border,
+                        color: isSelected
+                            ? _selectedBorderRight
+                            : AppColors.border,
                       ),
                     ),
                   ),
                   child: isSelected
-                    ? Icon(_selectedIconRight, color: AppColors.white, size: 16) 
-                    : null,
+                      ? Icon(_selectedIconRight,
+                          color: AppColors.white, size: 16)
+                      : null,
                 ),
               ],
             ),
