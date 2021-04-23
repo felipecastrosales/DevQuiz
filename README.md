@@ -8,7 +8,7 @@
 - ✅ Maximum Speed 🏃‍♂️
 - ✅ In Orbit 👨‍🚀 
 - ✅ Landing 🔥
-- 🔄 Surface Exploration ⚡
+- ✅ Surface Exploration ⚡
 - 🔄 Accelerating your Career 🚀
 
 ---
@@ -32,19 +32,20 @@
 ---
 
 <h2 align="center">About 📖</h2>
-   
+
 <p align="center">
-   <br>
-   <br>
-   <br>
-   <a href=""></a>
+    This project was developed at Next Level Week, an intense week of studies, networking, friendship, group work, accompanied by a sensational project developed by Rocketseat from the 19th to the 25th of April. <br>
+    This application is intended to be a Quiz for programmers to intensify their knowledge in programming through the exercises proposed by the application, where you have interactivity of questions and answers. <br>
+    It is a basic project so far, but it opens many doors for ideas, features, partnerships, and a lot of learning that I will take to my professional. Another NLW week concluded successfully and with a lot of presence in the community, helping other people and taking questions from same. It was incredible! <br>
 </p>
 
 ---
 
 <h2 align="center">Preview 📱</h2>
 
-   > * 
+   <p align="center">
+      <img src="assets/images/devquiz.gif" width="400" alt="DevQuiz Demo">
+   </p>
 
 ---
 
@@ -62,15 +63,14 @@
 
    <p>
    
-- 
-    -  ,
-    -  ,
-    -  ,
-    -  .
-
-- 
-
-- 
+- Quiz
+    - Questions,
+    - Answers,
+    - User feedback,
+    - Ranking and Score,
+    - Results
+    - Sharing Results ...
+- Among many other amazing things!
   
    </p>
 
@@ -79,10 +79,10 @@
 <h2 align="center">Challenges and Learnings along the way 🤯</h2>
 
    <p>
-    <br> 
-    <a href=""></a><br>
-    <br>
-    <br>
+   This project was challenging for me and the whole community. A simple application, but it was well structured and organized.<br>
+   I had several mistakes along the way, but I already realize that I am much more mature with the mistakes I made before, feeling more confident and confident than ever about what I do, and this week at NLW helped me a lot and to analyze and see the paths where I can and I want to continue. <br>
+   The community at the event's Discord was sensational, many people with good intentions and wanting to evolve with each other ... <br>
+   Ahhh, I miss you already! Looking forward to new events! <br>
    </p>
 
 ---
