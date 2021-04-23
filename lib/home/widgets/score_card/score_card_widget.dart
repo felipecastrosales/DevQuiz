@@ -4,7 +4,8 @@ import 'package:devquiz/core/core.dart';
 import 'package:devquiz/home/widgets/chart/chart_widget.dart';
 
 class ScoreCardWidget extends StatelessWidget {
-  const ScoreCardWidget({Key? key}) : super(key: key);
+  final double percent;
+  const ScoreCardWidget({Key? key, required this.percent}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,26 +24,25 @@ class ScoreCardWidget extends StatelessWidget {
             children: [
               Expanded(
                 flex: 1,
-                child: ChartWidget(),
+                child: ChartWidget(percent: percent),
               ),
               Expanded(
                 flex: 3,
                 child: Padding(
                   padding: const EdgeInsets.only(left: 20),
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Let\'s start', 
-                        style: AppTextStyles.heading,
-                      ),
-                      Text(
-                        'Complete challenges and advance knowledge :)',
-                        style: AppTextStyles.body,
-                      ),
-                    ]
-                  ),
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Let\'s start',
+                          style: AppTextStyles.heading,
+                        ),
+                        Text(
+                          'Complete challenges and advance knowledge :)',
+                          style: AppTextStyles.body,
+                        ),
+                      ]),
                 ),
               ),
             ],
