@@ -74,10 +74,10 @@ class _HomePageState extends State<HomePage> {
                       percent: e.questionAnswered / e.questions.length, 
                       image: e.image,
                     ),
-                  )
-                  .toList(),
+                  ).toList(),
                 ),
               ),
+              SizedBox(height: 20),
             ],
           ),
         ),
