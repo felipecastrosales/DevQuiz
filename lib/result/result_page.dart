@@ -5,16 +5,16 @@ import 'package:devquiz/core/core.dart';
 import 'package:share_plus/share_plus.dart';
 
 class ResultPage extends StatelessWidget {
-  final String title;
-  final int length;
-  final int result;
 
   const ResultPage(
       {Key? key,
       required this.title,
       required this.length,
-      required this.result})
+      required this.result,})
       : super(key: key);
+  final String title;
+  final int length;
+  final int result;
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +34,7 @@ class ResultPage extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: AppTextStyles.heading40,
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 Text.rich(
                   TextSpan(
                     text: 'You found',
@@ -72,7 +72,7 @@ class ResultPage extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 24),
+                const SizedBox(height: 24),
                 Row(
                   children: [
                     Expanded(
@@ -82,7 +82,7 @@ class ResultPage extends StatelessWidget {
                             label: 'Back to Start',
                             onTap: () {
                               Navigator.pop(context);
-                            }),
+                            },),
                       ),
                     ),
                   ],

@@ -4,11 +4,6 @@ import 'package:devquiz/core/core.dart';
 import 'package:devquiz/shared/widgets/progress_indicator/progress_indicator_widget.dart';
 
 class QuizCardWidget extends StatelessWidget {
-  final String image;
-  final String title;
-  final String completed;
-  final double percent;
-  final VoidCallback onTap;
 
   const QuizCardWidget({
     Key? key,
@@ -18,6 +13,11 @@ class QuizCardWidget extends StatelessWidget {
     required this.percent,
     required this.onTap,
   }) : super(key: key);
+  final String image;
+  final String title;
+  final String completed;
+  final double percent;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -26,21 +26,21 @@ class QuizCardWidget extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          border: Border.fromBorderSide(BorderSide(color: AppColors.border)),
+          border: const Border.fromBorderSide(BorderSide(color: AppColors.border)),
           color: AppColors.white,
           borderRadius: BorderRadius.circular(10),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
+            SizedBox(
               height: 40,
               width: 40,
               child: Image.asset(image),
             ),
-            SizedBox(height: 14),
+            const SizedBox(height: 14),
             Text(title, style: AppTextStyles.heading15),
-            SizedBox(height: 14),
+            const SizedBox(height: 14),
             Row(
               children: [
                 Expanded(

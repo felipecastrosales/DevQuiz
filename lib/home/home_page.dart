@@ -10,7 +10,7 @@ import 'package:devquiz/home/widgets/quiz_card/quiz_card_widget.dart';
 import 'home_state.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({Key? key}) : super(key: key);
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -44,16 +44,16 @@ class _HomePageState extends State<HomePage> {
                   shrinkWrap: true,
                   children: [
                     LevelButtonWidget(label: 'Easy'),
-                    SizedBox(width: 10),
+                    const SizedBox(width: 10),
                     LevelButtonWidget(label: 'Middle'),
-                    SizedBox(width: 10),
+                    const SizedBox(width: 10),
                     LevelButtonWidget(label: 'Hard'),
-                    SizedBox(width: 10),
+                    const SizedBox(width: 10),
                     LevelButtonWidget(label: 'Expert'),
                   ],
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Expanded(
                 child: GridView.count(
                   crossAxisSpacing: 16,
@@ -73,7 +73,7 @@ class _HomePageState extends State<HomePage> {
                                     title: e.title,
                                     questions: e.questions,
                                   ),
-                                ));
+                                ),);
                           },
                           percent: e.questionAnswered / e.questions.length,
                           image: e.image,
@@ -82,13 +82,13 @@ class _HomePageState extends State<HomePage> {
                       .toList(),
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
             ],
           ),
         ),
       );
     } else {
-      return Scaffold(
+      return const Scaffold(
         body: Center(
           child: CircularProgressIndicator(
             valueColor: AlwaysStoppedAnimation<Color>(AppColors.darkGreen),

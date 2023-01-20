@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:devquiz/core/core.dart';
 
 class ChartWidget extends StatefulWidget {
-  final double percent;
   const ChartWidget({Key? key, required this.percent}) : super(key: key);
+  final double percent;
 
   @override
   _ChartWidgetState createState() => _ChartWidgetState();
@@ -17,7 +17,7 @@ class _ChartWidgetState extends State<ChartWidget>
 
   void initAnimation() {
     _controller =
-        AnimationController(vsync: this, duration: Duration(seconds: 5));
+        AnimationController(vsync: this, duration: const Duration(seconds: 5));
     _animation =
         Tween<double>(begin: 0.0, end: widget.percent).animate(_controller);
     _controller.forward();
@@ -31,7 +31,7 @@ class _ChartWidgetState extends State<ChartWidget>
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 80,
       width: 80,
       child: AnimatedBuilder(
@@ -39,7 +39,7 @@ class _ChartWidgetState extends State<ChartWidget>
         builder: (context, _) => Stack(
           children: [
             Center(
-              child: Container(
+              child: SizedBox(
                 height: 80,
                 width: 80,
                 child: CircularProgressIndicator(
@@ -47,7 +47,7 @@ class _ChartWidgetState extends State<ChartWidget>
                   value: _animation.value,
                   backgroundColor: AppColors.chartSecondary,
                   valueColor:
-                      AlwaysStoppedAnimation<Color>(AppColors.chartPrimary),
+                      const AlwaysStoppedAnimation<Color>(AppColors.chartPrimary),
                 ),
               ),
             ),

@@ -8,11 +8,11 @@ import 'package:devquiz/shared/models/question_model.dart';
 import 'widgets/next_button/next_button_widget.dart';
 
 class ChallengePage extends StatefulWidget {
+
+  const ChallengePage({Key? key, required this.questions, required this.title})
+      : super(key: key);
   final List<QuestionModel> questions;
   final String title;
-
-  ChallengePage({Key? key, required this.questions, required this.title})
-      : super(key: key);
 
   @override
   _ChallengePageState createState() => _ChallengePageState();
@@ -31,11 +31,12 @@ class _ChallengePageState extends State<ChallengePage> {
   }
 
   void nextPage() {
-    if (controller.currentPage < widget.questions.length)
+    if (controller.currentPage < widget.questions.length) {
       pageController.nextPage(
-        duration: Duration(milliseconds: 500),
+        duration: const Duration(milliseconds: 500),
         curve: Curves.linear,
       );
+    }
   }
 
   void onSelected(bool value) {
@@ -49,13 +50,13 @@ class _ChallengePageState extends State<ChallengePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(86),
+        preferredSize: const Size.fromHeight(86),
         child: SafeArea(
           top: true,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              BackButton(),
+              const BackButton(),
               ValueListenableBuilder<int>(
                 valueListenable: controller.currentPageNotifier,
                 builder: (context, value, _) => QuestionIndicatorWidget(
@@ -68,13 +69,13 @@ class _ChallengePageState extends State<ChallengePage> {
         ),
       ),
       body: PageView(
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         controller: pageController,
         children: widget.questions
             .map((e) => QuizWidget(
                   question: e,
                   onSelected: onSelected,
-                ))
+                ),)
             .toList(),
       ),
       bottomNavigationBar: SafeArea(

@@ -4,10 +4,6 @@ import 'package:devquiz/core/core.dart';
 import 'package:devquiz/shared/models/answer_model.dart';
 
 class AnswerWidget extends StatelessWidget {
-  final AnswerModel answer;
-  final bool isSelected;
-  final bool disabled;
-  final ValueChanged<bool> onTap;
 
   const AnswerWidget({
     Key? key,
@@ -16,6 +12,10 @@ class AnswerWidget extends StatelessWidget {
     this.isSelected = false,
     this.disabled = false,
   }) : super(key: key);
+  final AnswerModel answer;
+  final bool isSelected;
+  final bool disabled;
+  final ValueChanged<bool> onTap;
 
   Color get _selectedColorRight =>
       answer.isRight ? AppColors.darkGreen : AppColors.darkRed;
@@ -45,7 +45,7 @@ class AnswerWidget extends StatelessWidget {
             onTap(answer.isRight);
           },
           child: Container(
-            padding: EdgeInsets.all(16),
+            padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
               color: isSelected ? _selectedColorCardRight : AppColors.white,
               borderRadius: BorderRadius.circular(10),
@@ -53,7 +53,7 @@ class AnswerWidget extends StatelessWidget {
                 BorderSide(
                     color: isSelected
                         ? _selectedBorderCardRight
-                        : AppColors.border),
+                        : AppColors.border,),
               ),
             ),
             child: Row(
@@ -67,7 +67,7 @@ class AnswerWidget extends StatelessWidget {
                         : AppTextStyles.body,
                   ),
                 ),
-                SizedBox(width: 16),
+                const SizedBox(width: 16),
                 Container(
                   width: 24,
                   height: 24,
@@ -84,7 +84,7 @@ class AnswerWidget extends StatelessWidget {
                   ),
                   child: isSelected
                       ? Icon(_selectedIconRight,
-                          color: AppColors.white, size: 16)
+                          color: AppColors.white, size: 16,)
                       : null,
                 ),
               ],

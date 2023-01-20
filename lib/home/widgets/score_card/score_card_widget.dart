@@ -4,8 +4,8 @@ import 'package:devquiz/core/core.dart';
 import 'package:devquiz/home/widgets/chart/chart_widget.dart';
 
 class ScoreCardWidget extends StatelessWidget {
-  final double percent;
   const ScoreCardWidget({Key? key, required this.percent}) : super(key: key);
+  final double percent;
 
   @override
   Widget build(BuildContext context) {
