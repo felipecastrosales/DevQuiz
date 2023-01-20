@@ -5,9 +5,10 @@ import 'package:devquiz/home/widgets/score_card/score_card_widget.dart';
 import 'package:devquiz/shared/models/user_model.dart';
 
 class AppBarWidget extends PreferredSize {
-
-  AppBarWidget({required this.user})
-      : super(
+  AppBarWidget({
+    super.key,
+    required this.user,
+  }) : super(
           preferredSize: const Size.fromHeight(250),
           child: SizedBox(
             height: 250,
@@ -17,7 +18,8 @@ class AppBarWidget extends PreferredSize {
                   height: 161,
                   padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
                   width: double.maxFinite,
-                  decoration: const BoxDecoration(gradient: AppGradients.linear),
+                  decoration:
+                      const BoxDecoration(gradient: AppGradients.linear),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -27,8 +29,9 @@ class AppBarWidget extends PreferredSize {
                           style: AppTextStyles.title,
                           children: [
                             TextSpan(
-                                text: user.name,
-                                style: AppTextStyles.titleBold,),
+                              text: user.name,
+                              style: AppTextStyles.titleBold,
+                            ),
                           ],
                         ),
                       ),

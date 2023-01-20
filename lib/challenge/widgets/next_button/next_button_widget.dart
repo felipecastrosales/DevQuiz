@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class NextButtonWidget extends StatelessWidget {
-
   const NextButtonWidget({
+    super.key,
     required this.label,
     required this.backgroundColor,
     required this.fontColor,
@@ -12,20 +12,30 @@ class NextButtonWidget extends StatelessWidget {
     required this.onTap,
   });
 
-  const NextButtonWidget.green({required this.label, required this.onTap})
-      : backgroundColor = AppColors.darkGreen,
+  const NextButtonWidget.green({
+    super.key,
+    required this.label,
+    required this.onTap,
+  })  : backgroundColor = AppColors.darkGreen,
         fontColor = AppColors.white,
         borderColor = AppColors.green;
 
-  const NextButtonWidget.purple({required this.label, required this.onTap})
-      : backgroundColor = AppColors.purple,
+  const NextButtonWidget.purple({
+    super.key,
+    required this.label,
+    required this.onTap,
+  })  : backgroundColor = AppColors.purple,
         fontColor = AppColors.white,
         borderColor = AppColors.green;
 
-  const NextButtonWidget.white({required this.label, required this.onTap})
-      : backgroundColor = AppColors.white,
+  const NextButtonWidget.white({
+    super.key,
+    required this.label,
+    required this.onTap,
+  })  : backgroundColor = AppColors.white,
         fontColor = AppColors.grey,
         borderColor = AppColors.border;
+
   final String label;
   final Color backgroundColor;
   final Color fontColor;
