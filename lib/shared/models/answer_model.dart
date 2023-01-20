@@ -22,7 +22,6 @@ class AnswerModel {
 
   String toJson() => json.encode(toMap());
 
-  factory AnswerModel.fromJson(String source) => 
+  factory AnswerModel.fromJson(String source) =>
       AnswerModel.fromMap(json.decode(source));
 }
-

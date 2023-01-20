@@ -103,7 +103,7 @@ class _ChallengePageState extends State<ChallengePage> {
                           MaterialPageRoute(
                             builder: (context) => ResultPage(
                               title: widget.title,
-                              length: widget.questions.length, 
+                              length: widget.questions.length,
                               result: controller.quantityAnswer,
                             ),
                           ),

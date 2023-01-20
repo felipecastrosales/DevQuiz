@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:devquiz/splash/splash_page.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(
+    DevQuizApp(),
+  );
 }
 
-class MyApp extends StatelessWidget {
+class DevQuizApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

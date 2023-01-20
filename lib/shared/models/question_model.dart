@@ -19,14 +19,14 @@ class QuestionModel {
   factory QuestionModel.fromMap(Map<String, dynamic> map) {
     return QuestionModel(
       title: map['title'],
-      answers: List<AnswerModel>.from(map['answers']?.map(
-        (x) => AnswerModel.fromMap(x)),
+      answers: List<AnswerModel>.from(
+        map['answers']?.map((x) => AnswerModel.fromMap(x)),
       ),
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  factory QuestionModel.fromJson(String source) => 
+  factory QuestionModel.fromJson(String source) =>
       QuestionModel.fromMap(json.decode(source));
 }

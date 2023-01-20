@@ -59,22 +59,27 @@ class _HomePageState extends State<HomePage> {
                   crossAxisSpacing: 16,
                   mainAxisSpacing: 16,
                   crossAxisCount: 2,
-                  children: controller.quizzes!.map(
-                    (e) => QuizCardWidget(
-                      title: e.title,
-                      completed: '${e.questionAnswered}/${e.questions.length}',
-                      onTap: (){
-                        Navigator.push(context, MaterialPageRoute(
-                          builder: (context) => ChallengePage(
-                            title: e.title,
-                            questions: e.questions, 
-                          ),
-                        ));
-                      },
-                      percent: e.questionAnswered / e.questions.length, 
-                      image: e.image,
-                    ),
-                  ).toList(),
+                  children: controller.quizzes!
+                      .map(
+                        (e) => QuizCardWidget(
+                          title: e.title,
+                          completed:
+                              '${e.questionAnswered}/${e.questions.length}',
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => ChallengePage(
+                                    title: e.title,
+                                    questions: e.questions,
+                                  ),
+                                ));
+                          },
+                          percent: e.questionAnswered / e.questions.length,
+                          image: e.image,
+                        ),
+                      )
+                      .toList(),
                 ),
               ),
               SizedBox(height: 20),

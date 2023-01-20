@@ -11,12 +11,12 @@ class QuizCardWidget extends StatelessWidget {
   final VoidCallback onTap;
 
   const QuizCardWidget({
-    Key? key, 
-    required this.image,    
-    required this.title, 
-    required this.completed, 
+    Key? key,
+    required this.image,
+    required this.title,
+    required this.completed,
     required this.percent,
-    required this.onTap, 
+    required this.onTap,
   }) : super(key: key);
 
   @override

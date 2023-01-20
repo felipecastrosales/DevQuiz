@@ -6,20 +6,20 @@ enum Level { easy, middle, hard, expert }
 
 extension LevelStringExtension on String {
   Level get parse => {
-    'easy': Level.easy, 
-    'middle': Level.middle, 
-    'hard': Level.hard, 
-    'expert': Level.expert
-  }[this]!;
+        'easy': Level.easy,
+        'middle': Level.middle,
+        'hard': Level.hard,
+        'expert': Level.expert
+      }[this]!;
 }
 
 extension LevelExtension on Level {
   String get parse => {
-    Level.easy: 'easy' , 
-    Level.middle: 'middle' , 
-    Level.hard: 'hard' , 
-    Level.expert: 'expert',
-  }[this]!;
+        Level.easy: 'easy',
+        Level.middle: 'middle',
+        Level.hard: 'hard',
+        Level.expert: 'expert',
+      }[this]!;
 }
 
 class QuizModel {
