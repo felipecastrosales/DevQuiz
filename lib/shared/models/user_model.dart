@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 class UserModel {
-
   UserModel({
     required this.name,
     required this.photoUrl,
@@ -18,6 +17,7 @@ class UserModel {
 
   factory UserModel.fromJson(String source) =>
       UserModel.fromMap(json.decode(source));
+
   final String name;
   final String photoUrl;
   final int score;

@@ -1,8 +1,10 @@
 import 'dart:convert';
 
 class AnswerModel {
-
-  AnswerModel({required this.title, this.isRight = false});
+  AnswerModel({
+    required this.title,
+    this.isRight = false,
+  });
 
   factory AnswerModel.fromMap(Map<String, dynamic> map) {
     return AnswerModel(
