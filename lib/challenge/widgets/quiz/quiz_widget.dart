@@ -6,8 +6,12 @@ import 'package:devquiz/shared/models/answer_model.dart';
 import 'package:devquiz/shared/models/question_model.dart';
 
 class QuizWidget extends StatefulWidget {
-  const QuizWidget({Key? key, required this.question, required this.onSelected})
-      : super(key: key);
+  const QuizWidget({
+    super.key,
+    required this.question,
+    required this.onSelected,
+  });
+
   final QuestionModel question;
   final ValueChanged<bool> onSelected;
 

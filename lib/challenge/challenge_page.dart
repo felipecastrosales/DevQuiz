@@ -8,8 +8,12 @@ import 'package:devquiz/shared/models/question_model.dart';
 import 'widgets/next_button/next_button_widget.dart';
 
 class ChallengePage extends StatefulWidget {
-  const ChallengePage({Key? key, required this.questions, required this.title})
-      : super(key: key);
+  const ChallengePage({
+    super.key,
+    required this.questions,
+    required this.title,
+  });
+
   final List<QuestionModel> questions;
   final String title;
 

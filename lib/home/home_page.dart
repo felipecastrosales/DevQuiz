@@ -10,7 +10,7 @@ import 'package:devquiz/home/widgets/quiz_card/quiz_card_widget.dart';
 import 'home_state.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();

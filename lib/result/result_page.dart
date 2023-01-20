@@ -5,13 +5,12 @@ import 'package:devquiz/core/core.dart';
 import 'package:share_plus/share_plus.dart';
 
 class ResultPage extends StatelessWidget {
-
-  const ResultPage(
-      {Key? key,
-      required this.title,
-      required this.length,
-      required this.result,})
-      : super(key: key);
+  const ResultPage({
+    super.key,
+    required this.title,
+    required this.length,
+    required this.result,
+  });
   final String title;
   final int length;
   final int result;
@@ -79,10 +78,11 @@ class ResultPage extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 68),
                         child: NextButtonWidget.white(
-                            label: 'Back to Start',
-                            onTap: () {
-                              Navigator.pop(context);
-                            },),
+                          label: 'Back to Start',
+                          onTap: () {
+                            Navigator.pop(context);
+                          },
+                        ),
                       ),
                     ),
                   ],

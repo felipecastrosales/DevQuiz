@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:devquiz/core/core.dart';
 
 class ProgressIndicatorWidget extends StatelessWidget {
-  const ProgressIndicatorWidget({Key? key, required this.value})
-      : super(key: key);
+  const ProgressIndicatorWidget({
+    super.key,
+    required this.value,
+  });
+
   final double value;
 
   @override

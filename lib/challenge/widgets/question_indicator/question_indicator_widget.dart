@@ -4,12 +4,12 @@ import 'package:devquiz/core/core.dart';
 import 'package:devquiz/shared/widgets/progress_indicator/progress_indicator_widget.dart';
 
 class QuestionIndicatorWidget extends StatelessWidget {
-
   const QuestionIndicatorWidget({
-    Key? key,
+    super.key,
     required this.currentPage,
     required this.length,
-  }) : super(key: key);
+  });
+
   final int currentPage;
   final int length;
 

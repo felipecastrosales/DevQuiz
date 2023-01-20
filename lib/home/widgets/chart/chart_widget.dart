@@ -3,7 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:devquiz/core/core.dart';
 
 class ChartWidget extends StatefulWidget {
-  const ChartWidget({Key? key, required this.percent}) : super(key: key);
+  const ChartWidget({
+    super.key,
+    required this.percent,
+  });
+
   final double percent;
 
   @override

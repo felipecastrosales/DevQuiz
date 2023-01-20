@@ -4,15 +4,15 @@ import 'package:devquiz/core/core.dart';
 import 'package:devquiz/shared/widgets/progress_indicator/progress_indicator_widget.dart';
 
 class QuizCardWidget extends StatelessWidget {
-
   const QuizCardWidget({
-    Key? key,
+    super.key,
     required this.image,
     required this.title,
     required this.completed,
     required this.percent,
     required this.onTap,
-  }) : super(key: key);
+  });
+
   final String image;
   final String title;
   final String completed;
@@ -26,7 +26,8 @@ class QuizCardWidget extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          border: const Border.fromBorderSide(BorderSide(color: AppColors.border)),
+          border:
+              const Border.fromBorderSide(BorderSide(color: AppColors.border)),
           color: AppColors.white,
           borderRadius: BorderRadius.circular(10),
         ),

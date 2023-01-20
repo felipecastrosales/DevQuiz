@@ -4,14 +4,14 @@ import 'package:devquiz/core/core.dart';
 import 'package:devquiz/shared/models/answer_model.dart';
 
 class AnswerWidget extends StatelessWidget {
-
   const AnswerWidget({
-    Key? key,
+    super.key,
     required this.answer,
     required this.onTap,
     this.isSelected = false,
     this.disabled = false,
-  }) : super(key: key);
+  });
+
   final AnswerModel answer;
   final bool isSelected;
   final bool disabled;
@@ -51,9 +51,9 @@ class AnswerWidget extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
               border: Border.fromBorderSide(
                 BorderSide(
-                    color: isSelected
-                        ? _selectedBorderCardRight
-                        : AppColors.border,),
+                  color:
+                      isSelected ? _selectedBorderCardRight : AppColors.border,
+                ),
               ),
             ),
             child: Row(
@@ -83,8 +83,11 @@ class AnswerWidget extends StatelessWidget {
                     ),
                   ),
                   child: isSelected
-                      ? Icon(_selectedIconRight,
-                          color: AppColors.white, size: 16,)
+                      ? Icon(
+                          _selectedIconRight,
+                          color: AppColors.white,
+                          size: 16,
+                        )
                       : null,
                 ),
               ],
