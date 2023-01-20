@@ -7,7 +7,7 @@ class ChartWidget extends StatefulWidget {
   final double percent;
 
   @override
-  _ChartWidgetState createState() => _ChartWidgetState();
+  State<ChartWidget> createState() => _ChartWidgetState();
 }
 
 class _ChartWidgetState extends State<ChartWidget>
@@ -46,8 +46,9 @@ class _ChartWidgetState extends State<ChartWidget>
                   strokeWidth: 10,
                   value: _animation.value,
                   backgroundColor: AppColors.chartSecondary,
-                  valueColor:
-                      const AlwaysStoppedAnimation<Color>(AppColors.chartPrimary),
+                  valueColor: const AlwaysStoppedAnimation<Color>(
+                    AppColors.chartPrimary,
+                  ),
                 ),
               ),
             ),

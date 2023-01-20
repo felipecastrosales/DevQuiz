@@ -12,7 +12,7 @@ class QuizWidget extends StatefulWidget {
   final ValueChanged<bool> onSelected;
 
   @override
-  _QuizWidgetState createState() => _QuizWidgetState();
+  State<QuizWidget> createState() => _QuizWidgetState();
 }
 
 class _QuizWidgetState extends State<QuizWidget> {
@@ -21,29 +21,27 @@ class _QuizWidgetState extends State<QuizWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: [
-          const SizedBox(height: 40),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Text(widget.question.title, style: AppTextStyles.heading),
+    return Column(
+      children: [
+        const SizedBox(height: 40),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Text(widget.question.title, style: AppTextStyles.heading),
+        ),
+        const SizedBox(height: 20),
+        for (var i = 0; i < widget.question.answers.length; i++)
+          AnswerWidget(
+            answer: answer(i),
+            isSelected: indexSelected == i,
+            disabled: indexSelected != -1,
+            onTap: (value) {
+              indexSelected = i;
+              setState(() {});
+              Future.delayed(const Duration(seconds: 1))
+                  .then((_) => widget.onSelected(value));
+            },
           ),
-          const SizedBox(height: 20),
-          for (var i = 0; i < widget.question.answers.length; i++)
-            AnswerWidget(
-              answer: answer(i),
-              isSelected: indexSelected == i,
-              disabled: indexSelected != -1,
-              onTap: (value) {
-                indexSelected = i;
-                setState(() {});
-                Future.delayed(const Duration(seconds: 1))
-                    .then((_) => widget.onSelected(value));
-              },
-            ),
-        ],
-      ),
+      ],
     );
   }
 }

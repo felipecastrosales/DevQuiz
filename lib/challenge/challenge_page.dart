@@ -8,14 +8,13 @@ import 'package:devquiz/shared/models/question_model.dart';
 import 'widgets/next_button/next_button_widget.dart';
 
 class ChallengePage extends StatefulWidget {
-
   const ChallengePage({Key? key, required this.questions, required this.title})
       : super(key: key);
   final List<QuestionModel> questions;
   final String title;
 
   @override
-  _ChallengePageState createState() => _ChallengePageState();
+  State<ChallengePage> createState() => _ChallengePageState();
 }
 
 class _ChallengePageState extends State<ChallengePage> {
@@ -72,10 +71,12 @@ class _ChallengePageState extends State<ChallengePage> {
         physics: const NeverScrollableScrollPhysics(),
         controller: pageController,
         children: widget.questions
-            .map((e) => QuizWidget(
-                  question: e,
-                  onSelected: onSelected,
-                ),)
+            .map(
+              (e) => QuizWidget(
+                question: e,
+                onSelected: onSelected,
+              ),
+            )
             .toList(),
       ),
       bottomNavigationBar: SafeArea(
