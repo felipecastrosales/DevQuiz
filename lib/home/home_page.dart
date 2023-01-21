@@ -1,12 +1,12 @@
-import 'package:devquiz/challenge/challenge_page.dart';
 import 'package:flutter/material.dart';
 
-import 'home_controller.dart';
+import 'package:devquiz/challenge/challenge_page.dart';
 import 'package:devquiz/core/core.dart';
 import 'package:devquiz/home/widgets/appbar/app_bar_widget.dart';
 import 'package:devquiz/home/widgets/level_button/level_button_widget.dart';
 import 'package:devquiz/home/widgets/quiz_card/quiz_card_widget.dart';
 
+import 'home_controller.dart';
 import 'home_state.dart';
 
 class HomePage extends StatefulWidget {
@@ -18,6 +18,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final controller = HomeController();
+
   @override
   void initState() {
     super.initState();
@@ -59,28 +60,37 @@ class _HomePageState extends State<HomePage> {
                   crossAxisSpacing: 16,
                   mainAxisSpacing: 16,
                   crossAxisCount: 2,
-                  children: controller.quizzes!
-                      .map(
-                        (e) => QuizCardWidget(
-                          title: e.title,
-                          completed:
-                              '${e.questionAnswered}/${e.questions.length}',
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => ChallengePage(
-                                  title: e.title,
-                                  questions: e.questions,
+                  children: controller.quizzes?.map(
+                        (quiz) {
+                          final questionAnswered = quiz.questionAnswered;
+                          final questionLength = quiz.questions.length;
+                          final percent = questionAnswered / questionLength;
+                          final title = quiz.title;
+                          final questions = quiz.questions;
+                          final image = quiz.image;
+                          final completed =
+                              '${questionAnswered}/${questionLength}';
+
+                          return QuizCardWidget(
+                            image: image,
+                            title: title,
+                            percent: percent,
+                            completed: completed,
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => ChallengePage(
+                                    title: title,
+                                    questions: questions,
+                                  ),
                                 ),
-                              ),
-                            );
-                          },
-                          percent: e.questionAnswered / e.questions.length,
-                          image: e.image,
-                        ),
-                      )
-                      .toList(),
+                              );
+                            },
+                          );
+                        },
+                      ).toList() ??
+                      [],
                 ),
               ),
               const SizedBox(height: 20),
@@ -92,7 +102,9 @@ class _HomePageState extends State<HomePage> {
       return const Scaffold(
         body: Center(
           child: CircularProgressIndicator(
-            valueColor: AlwaysStoppedAnimation<Color>(AppColors.darkGreen),
+            valueColor: AlwaysStoppedAnimation<Color>(
+              AppColors.darkGreen,
+            ),
           ),
         ),
       );

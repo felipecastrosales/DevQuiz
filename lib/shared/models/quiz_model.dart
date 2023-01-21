@@ -9,10 +9,10 @@ import 'question_model.dart';
 class QuizModel {
   QuizModel({
     required this.title,
-    required this.questions,
-    this.questionAnswered = 0,
     required this.image,
     required this.level,
+    required this.questions,
+    this.questionAnswered = 0,
   });
 
   factory QuizModel.fromMap(Map<String, dynamic> map) {
@@ -33,10 +33,10 @@ class QuizModel {
       QuizModel.fromMap(json.decode(source));
 
   final String title;
-  final List<QuestionModel> questions;
-  final int questionAnswered;
   final String image;
   final Level level;
+  final List<QuestionModel> questions;
+  final int questionAnswered;
 
   Map<String, dynamic> toMap() {
     return {

@@ -20,17 +20,21 @@ class _ChartWidgetState extends State<ChartWidget>
   late Animation<double> _animation;
 
   void initAnimation() {
-    _controller =
-        AnimationController(vsync: this, duration: const Duration(seconds: 5));
-    _animation =
-        Tween<double>(begin: 0.0, end: widget.percent).animate(_controller);
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 5),
+    );
+    _animation = Tween<double>(
+      begin: 0.0,
+      end: widget.percent,
+    ).animate(_controller);
     _controller.forward();
   }
 
   @override
   void initState() {
-    initAnimation();
     super.initState();
+    initAnimation();
   }
 
   @override

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
-import 'challenge_controller.dart';
-import 'widgets/question_indicator/question_indicator_widget.dart';
-import 'widgets/quiz/quiz_widget.dart';
 import 'package:devquiz/result/result_page.dart';
 import 'package:devquiz/shared/models/question_model.dart';
+
+import 'challenge_controller.dart';
 import 'widgets/next_button/next_button_widget.dart';
+import 'widgets/question_indicator/question_indicator_widget.dart';
+import 'widgets/quiz/quiz_widget.dart';
 
 class ChallengePage extends StatefulWidget {
   const ChallengePage({
@@ -25,16 +26,18 @@ class _ChallengePageState extends State<ChallengePage> {
   final controller = ChallengeController();
   final pageController = PageController();
 
+  int get questionsLength => widget.questions.length;
+
   @override
   initState() {
     pageController.addListener(() {
-      controller.currentPage = pageController.page!.toInt() + 1;
+      controller.currentPage = (pageController.page?.toInt() ?? 0) + 1;
     });
     super.initState();
   }
 
   void nextPage() {
-    if (controller.currentPage < widget.questions.length) {
+    if (controller.currentPage < questionsLength) {
       pageController.nextPage(
         duration: const Duration(milliseconds: 500),
         curve: Curves.linear,
@@ -64,7 +67,7 @@ class _ChallengePageState extends State<ChallengePage> {
                 valueListenable: controller.currentPageNotifier,
                 builder: (context, value, _) => QuestionIndicatorWidget(
                   currentPage: value,
-                  length: widget.questions.length,
+                  length: questionsLength,
                 ),
               ),
             ],
@@ -76,8 +79,8 @@ class _ChallengePageState extends State<ChallengePage> {
         controller: pageController,
         children: widget.questions
             .map(
-              (e) => QuizWidget(
-                question: e,
+              (question) => QuizWidget(
+                question: question,
                 onSelected: onSelected,
               ),
             )
@@ -92,14 +95,14 @@ class _ChallengePageState extends State<ChallengePage> {
             builder: (context, value, _) => Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                if (value < widget.questions.length)
+                if (value < questionsLength)
                   Expanded(
                     child: NextButtonWidget.white(
                       label: 'Skip',
                       onTap: nextPage,
                     ),
                   ),
-                if (value == widget.questions.length)
+                if (value == questionsLength)
                   Expanded(
                     child: NextButtonWidget.green(
                       label: 'Confirm',
@@ -109,7 +112,7 @@ class _ChallengePageState extends State<ChallengePage> {
                           MaterialPageRoute(
                             builder: (context) => ResultPage(
                               title: widget.title,
-                              length: widget.questions.length,
+                              length: questionsLength,
                               result: controller.quantityAnswer,
                             ),
                           ),

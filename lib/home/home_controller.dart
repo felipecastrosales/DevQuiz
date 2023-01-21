@@ -6,15 +6,14 @@ import 'package:devquiz/shared/models/quiz_model.dart';
 import 'package:devquiz/shared/models/user_model.dart';
 
 class HomeController {
-  ValueNotifier<HomeState> stateNotifier =
-      ValueNotifier<HomeState>(HomeState.empty);
+  final stateNotifier = ValueNotifier<HomeState>(HomeState.empty);
+  final repository = HomeRepository();
+
   set state(HomeState state) => stateNotifier.value = state;
   HomeState get state => stateNotifier.value;
 
   UserModel? user;
   List<QuizModel>? quizzes;
-
-  final repository = HomeRepository();
 
   void getUser() async {
     state = HomeState.loading;

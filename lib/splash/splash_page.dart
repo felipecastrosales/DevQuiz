@@ -9,18 +9,23 @@ class SplashPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Future.delayed(const Duration(seconds: 2)).then(
+    Future.delayed(
+      const Duration(seconds: 2),
+    ).then(
       (_) => Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const HomePage()),
       ),
     );
+
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
           gradient: AppGradients.linear,
         ),
-        child: Center(child: Image.asset(AppImages.logo)),
+        child: Center(
+          child: Image.asset(AppImages.logo),
+        ),
       ),
     );
   }

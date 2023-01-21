@@ -1,5 +1,6 @@
-import 'package:devquiz/core/core.dart';
 import 'package:flutter/material.dart';
+
+import 'package:devquiz/core/core.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class NextButtonWidget extends StatelessWidget {
@@ -49,11 +50,17 @@ class NextButtonWidget extends StatelessWidget {
       child: TextButton(
         onPressed: onTap,
         style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all((backgroundColor)),
-          shape: MaterialStateProperty.all(
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          backgroundColor: MaterialStateProperty.all(
+            (backgroundColor),
           ),
-          side: MaterialStateProperty.all(BorderSide(color: borderColor)),
+          shape: MaterialStateProperty.all(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+          ),
+          side: MaterialStateProperty.all(
+            BorderSide(color: borderColor),
+          ),
         ),
         child: Text(
           label,

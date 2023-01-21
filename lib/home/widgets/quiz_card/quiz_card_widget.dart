@@ -26,8 +26,9 @@ class QuizCardWidget extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          border:
-              const Border.fromBorderSide(BorderSide(color: AppColors.border)),
+          border: const Border.fromBorderSide(
+            BorderSide(color: AppColors.border),
+          ),
           color: AppColors.white,
           borderRadius: BorderRadius.circular(10),
         ),
@@ -46,11 +47,16 @@ class QuizCardWidget extends StatelessWidget {
               children: [
                 Expanded(
                   flex: 1,
-                  child: Text(completed, style: AppTextStyles.body11),
+                  child: Text(
+                    completed,
+                    style: AppTextStyles.body11,
+                  ),
                 ),
                 Expanded(
                   flex: 2,
-                  child: ProgressIndicatorWidget(value: percent),
+                  child: ProgressIndicatorWidget(
+                    value: percent,
+                  ),
                 ),
               ],
             ),

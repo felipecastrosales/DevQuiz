@@ -22,12 +22,20 @@ class QuestionIndicatorWidget extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('Question $currentPage', style: AppTextStyles.body),
-              Text('of $length', style: AppTextStyles.body),
+              Text(
+                'Question $currentPage',
+                style: AppTextStyles.body,
+              ),
+              Text(
+                'of $length',
+                style: AppTextStyles.body,
+              ),
             ],
           ),
           const SizedBox(height: 16),
-          ProgressIndicatorWidget(value: currentPage / length),
+          ProgressIndicatorWidget(
+            value: currentPage / length,
+          ),
         ],
       ),
     );

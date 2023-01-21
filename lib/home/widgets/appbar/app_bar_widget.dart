@@ -18,8 +18,9 @@ class AppBarWidget extends PreferredSize {
                   height: 161,
                   padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
                   width: double.maxFinite,
-                  decoration:
-                      const BoxDecoration(gradient: AppGradients.linear),
+                  decoration: const BoxDecoration(
+                    gradient: AppGradients.linear,
+                  ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -51,11 +52,14 @@ class AppBarWidget extends PreferredSize {
                 ),
                 Align(
                   alignment: const Alignment(0.0, 1.0),
-                  child: ScoreCardWidget(percent: user.score / 100),
+                  child: ScoreCardWidget(
+                    percent: user.score / 100,
+                  ),
                 ),
               ],
             ),
           ),
         );
+
   final UserModel user;
 }

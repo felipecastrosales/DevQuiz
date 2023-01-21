@@ -11,6 +11,7 @@ class ResultPage extends StatelessWidget {
     required this.length,
     required this.result,
   });
+
   final String title;
   final int length;
   final int result;
@@ -63,8 +64,10 @@ class ResultPage extends StatelessWidget {
                         child: NextButtonWidget.purple(
                           label: 'Share',
                           onTap: () {
-                            Share.share('DevQuiz NLW 5 - Quiz Result: $title\n'
-                                'Accuracy: $result / $length');
+                            Share.share(
+                              'DevQuiz NLW 5 - Quiz Result: $title\n'
+                              'Accuracy: $result / $length',
+                            );
                           },
                         ),
                       ),
