@@ -10,6 +10,7 @@ dependencies:
   cupertino_icons: ^1.0.5
   flutter:
     sdk: flutter
+  flutter_launcher_icons: ^0.11.0
   google_fonts: ^3.0.1
   share_plus: ^6.3.0
 
@@ -23,3 +24,15 @@ flutter:
   assets:
     - assets/images/
     - assets/database/
+
+flutter_icons:
+  image_path: "assets/images/logo.png"
+  image_path_android: "assets/images/logo.png"
+  image_path_ios: "assets/images/logo.png"
+  android: true
+  ios: true
+  remove_alpha_ios: true
+  web:
+    generate: true
+    image_path: "assets/images/logo.png"
+    background_color: "#04D361"
