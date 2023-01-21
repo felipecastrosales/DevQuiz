@@ -38,6 +38,7 @@ class _HomePageState extends State<HomePage> {
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
             children: [
+              const SizedBox(height: 10),
               SizedBox(
                 height: 32,
                 child: ListView(
@@ -54,7 +55,7 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 10),
               Expanded(
                 child: GridView.count(
                   crossAxisSpacing: 16,
