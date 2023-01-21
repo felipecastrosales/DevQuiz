@@ -32,6 +32,8 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     if (controller.state == HomeState.success) {
+      final labels = ['Easy', 'Middle', 'Hard', 'Expert'];
+
       return Scaffold(
         appBar: AppBarWidget(user: controller.user!),
         body: Padding(
@@ -41,18 +43,16 @@ class _HomePageState extends State<HomePage> {
               const SizedBox(height: 10),
               SizedBox(
                 height: 32,
-                child: ListView(
+                child: ListView.separated(
+                  itemCount: labels.length,
                   scrollDirection: Axis.horizontal,
+                  separatorBuilder: (context, index) =>
+                      const SizedBox(width: 10),
                   shrinkWrap: true,
-                  children: [
-                    LevelButtonWidget(label: 'Easy'),
-                    const SizedBox(width: 10),
-                    LevelButtonWidget(label: 'Middle'),
-                    const SizedBox(width: 10),
-                    LevelButtonWidget(label: 'Hard'),
-                    const SizedBox(width: 10),
-                    LevelButtonWidget(label: 'Expert'),
-                  ],
+                  itemBuilder: (context, index) {
+                    final label = labels[index];
+                    return LevelButtonWidget(label: label);
+                  },
                 ),
               ),
               const SizedBox(height: 10),
