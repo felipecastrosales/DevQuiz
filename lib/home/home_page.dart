@@ -69,8 +69,7 @@ class _HomePageState extends State<HomePage> {
                           final title = quiz.title;
                           final questions = quiz.questions;
                           final image = quiz.image;
-                          final completed =
-                              '${questionAnswered}/${questionLength}';
+                          final completed = '$questionAnswered/$questionLength';
 
                           return QuizCardWidget(
                             image: image,
