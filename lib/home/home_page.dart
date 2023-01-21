@@ -36,66 +36,62 @@ class _HomePageState extends State<HomePage> {
 
       return Scaffold(
         appBar: AppBarWidget(user: controller.user!),
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Column(
-            children: [
-              const SizedBox(height: 10),
-              SizedBox(
-                height: 32,
-                child: ListView.separated(
-                  itemCount: labels.length,
-                  scrollDirection: Axis.horizontal,
-                  separatorBuilder: (context, index) =>
-                      const SizedBox(width: 10),
-                  shrinkWrap: true,
-                  itemBuilder: (context, index) {
-                    final label = labels[index];
-                    return LevelButtonWidget(label: label);
-                  },
-                ),
+        body: Column(
+          children: [
+            const SizedBox(height: 10),
+            SizedBox(
+              height: 32,
+              child: ListView.separated(
+                itemCount: labels.length,
+                scrollDirection: Axis.horizontal,
+                separatorBuilder: (context, index) => const SizedBox(width: 8),
+                shrinkWrap: true,
+                itemBuilder: (context, index) {
+                  return LevelButtonWidget(label: labels[index]);
+                },
               ),
-              const SizedBox(height: 10),
-              Expanded(
-                child: GridView.count(
-                  crossAxisSpacing: 16,
-                  mainAxisSpacing: 16,
-                  crossAxisCount: 2,
-                  children: controller.quizzes?.map(
-                        (quiz) {
-                          final questionAnswered = quiz.questionAnswered;
-                          final questionLength = quiz.questions.length;
-                          final percent = questionAnswered / questionLength;
-                          final title = quiz.title;
-                          final questions = quiz.questions;
-                          final image = quiz.image;
-                          final completed = '$questionAnswered/$questionLength';
+            ),
+            const SizedBox(height: 10),
+            Expanded(
+              child: GridView.count(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                crossAxisSpacing: 16,
+                mainAxisSpacing: 16,
+                crossAxisCount: 2,
+                children: controller.quizzes?.map(
+                      (quiz) {
+                        final questionAnswered = quiz.questionAnswered;
+                        final questionLength = quiz.questions.length;
+                        final percent = questionAnswered / questionLength;
+                        final title = quiz.title;
+                        final image = quiz.image;
+                        final questions = quiz.questions;
+                        final completed = '$questionAnswered/$questionLength';
 
-                          return QuizCardWidget(
-                            image: image,
-                            title: title,
-                            percent: percent,
-                            completed: completed,
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => ChallengePage(
-                                    title: title,
-                                    questions: questions,
-                                  ),
+                        return QuizCardWidget(
+                          image: image,
+                          title: title,
+                          percent: percent,
+                          completed: completed,
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ChallengePage(
+                                  title: title,
+                                  questions: questions,
                                 ),
-                              );
-                            },
-                          );
-                        },
-                      ).toList() ??
-                      [],
-                ),
+                              ),
+                            );
+                          },
+                        );
+                      },
+                    ).toList() ??
+                    [],
               ),
-              const SizedBox(height: 20),
-            ],
-          ),
+            ),
+            const SizedBox(height: 20),
+          ],
         ),
       );
     } else {
