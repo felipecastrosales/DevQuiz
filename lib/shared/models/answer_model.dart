@@ -1,17 +1,10 @@
 import 'dart:convert';
 
 class AnswerModel {
-  final String title;
-  final bool isRight;
-
-  AnswerModel({required this.title, this.isRight = false});
-
-  Map<String, dynamic> toMap() {
-    return {
-      'title': title,
-      'isRight': isRight,
-    };
-  }
+  AnswerModel({
+    required this.title,
+    this.isRight = false,
+  });
 
   factory AnswerModel.fromMap(Map<String, dynamic> map) {
     return AnswerModel(
@@ -20,9 +13,17 @@ class AnswerModel {
     );
   }
 
-  String toJson() => json.encode(toMap());
-
-  factory AnswerModel.fromJson(String source) => 
+  factory AnswerModel.fromJson(String source) =>
       AnswerModel.fromMap(json.decode(source));
-}
+  final String title;
+  final bool isRight;
 
+  Map<String, dynamic> toMap() {
+    return {
+      'title': title,
+      'isRight': isRight,
+    };
+  }
+
+  String toJson() => json.encode(toMap());
+}

@@ -5,16 +5,16 @@ import 'package:devquiz/core/core.dart';
 import 'package:share_plus/share_plus.dart';
 
 class ResultPage extends StatelessWidget {
+  const ResultPage({
+    super.key,
+    required this.title,
+    required this.length,
+    required this.result,
+  });
+
   final String title;
   final int length;
   final int result;
-
-  const ResultPage(
-      {Key? key,
-      required this.title,
-      required this.length,
-      required this.result})
-      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +34,7 @@ class ResultPage extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: AppTextStyles.heading40,
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 Text.rich(
                   TextSpan(
                     text: 'You found',
@@ -66,7 +66,7 @@ class ResultPage extends StatelessWidget {
                           onTap: () {
                             Share.share(
                               'DevQuiz NLW 5 - Quiz Result: $title\n'
-                              'Accuracy: $result / $length'
+                              'Accuracy: $result / $length',
                             );
                           },
                         ),
@@ -74,17 +74,18 @@ class ResultPage extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 24),
+                const SizedBox(height: 24),
                 Row(
                   children: [
                     Expanded(
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 68),
                         child: NextButtonWidget.white(
-                            label: 'Back to Start',
-                            onTap: () {
-                              Navigator.pop(context);
-                            }),
+                          label: 'Back to Start',
+                          onTap: () {
+                            Navigator.pop(context);
+                          },
+                        ),
                       ),
                     ),
                   ],

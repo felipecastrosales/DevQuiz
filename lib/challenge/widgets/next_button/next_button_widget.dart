@@ -1,15 +1,11 @@
-import 'package:devquiz/core/core.dart';
 import 'package:flutter/material.dart';
+
+import 'package:devquiz/core/core.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class NextButtonWidget extends StatelessWidget {
-  final String label;
-  final Color backgroundColor;
-  final Color fontColor;
-  final Color borderColor;
-  final VoidCallback onTap;
-
   const NextButtonWidget({
+    super.key,
     required this.label,
     required this.backgroundColor,
     required this.fontColor,
@@ -17,33 +13,54 @@ class NextButtonWidget extends StatelessWidget {
     required this.onTap,
   });
 
-  NextButtonWidget.green({required this.label, required this.onTap})
-      : this.backgroundColor = AppColors.darkGreen,
-        this.fontColor = AppColors.white,
-        this.borderColor = AppColors.green;
+  const NextButtonWidget.green({
+    super.key,
+    required this.label,
+    required this.onTap,
+  })  : backgroundColor = AppColors.darkGreen,
+        fontColor = AppColors.white,
+        borderColor = AppColors.green;
 
-  NextButtonWidget.purple({required this.label, required this.onTap})
-      : this.backgroundColor = AppColors.purple,
-        this.fontColor = AppColors.white,
-        this.borderColor = AppColors.green;
+  const NextButtonWidget.purple({
+    super.key,
+    required this.label,
+    required this.onTap,
+  })  : backgroundColor = AppColors.purple,
+        fontColor = AppColors.white,
+        borderColor = AppColors.green;
 
-  NextButtonWidget.white({required this.label, required this.onTap})
-      : this.backgroundColor = AppColors.white,
-        this.fontColor = AppColors.grey,
-        this.borderColor = AppColors.border;
+  const NextButtonWidget.white({
+    super.key,
+    required this.label,
+    required this.onTap,
+  })  : backgroundColor = AppColors.white,
+        fontColor = AppColors.grey,
+        borderColor = AppColors.border;
+
+  final String label;
+  final Color backgroundColor;
+  final Color fontColor;
+  final Color borderColor;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 48,
       child: TextButton(
         onPressed: onTap,
         style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all((backgroundColor)),
-          shape: MaterialStateProperty.all(
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          backgroundColor: MaterialStateProperty.all(
+            (backgroundColor),
           ),
-          side: MaterialStateProperty.all(BorderSide(color: borderColor)),
+          shape: MaterialStateProperty.all(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+          ),
+          side: MaterialStateProperty.all(
+            BorderSide(color: borderColor),
+          ),
         ),
         child: Text(
           label,

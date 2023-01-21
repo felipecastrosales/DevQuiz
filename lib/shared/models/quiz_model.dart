@@ -1,65 +1,52 @@
 import 'dart:convert';
 
+import 'package:devquiz/shared/enums/level_enum.dart';
+import 'package:devquiz/shared/extensions/level_extension.dart';
+import 'package:devquiz/shared/extensions/level_string_extension.dart';
+
 import 'question_model.dart';
 
-enum Level { easy, middle, hard, expert }
-
-extension LevelStringExtension on String {
-  Level get parse => {
-    'easy': Level.easy, 
-    'middle': Level.middle, 
-    'hard': Level.hard, 
-    'expert': Level.expert
-  }[this]!;
-}
-
-extension LevelExtension on Level {
-  String get parse => {
-    Level.easy: 'easy' , 
-    Level.middle: 'middle' , 
-    Level.hard: 'hard' , 
-    Level.expert: 'expert',
-  }[this]!;
-}
-
 class QuizModel {
-  final String title;
-  final List<QuestionModel> questions;
-  final int questionAnswered;
-  final String image;
-  final Level level;
-
   QuizModel({
     required this.title,
-    required this.questions,
-    this.questionAnswered = 0,
     required this.image,
     required this.level,
+    required this.questions,
+    this.questionAnswered = 0,
   });
-
-  Map<String, dynamic> toMap() {
-    return {
-      'title': title,
-      'questions': questions.map((x) => x.toMap()).toList(),
-      'questionAnswered': questionAnswered,
-      'image': image,
-      'level': level.parse,
-    };
-  }
 
   factory QuizModel.fromMap(Map<String, dynamic> map) {
     return QuizModel(
       title: map['title'],
       questions: List<QuestionModel>.from(
-          map['questions']?.map((x) => QuestionModel.fromMap(x))),
+        map['questions']?.map(
+          (question) => QuestionModel.fromMap(question),
+        ),
+      ),
       questionAnswered: map['questionAnswered'],
       image: map['image'],
-      level: map['level'].toString().parse,
+      level: map['level'].toString().levelMapping,
     );
   }
 
-  String toJson() => json.encode(toMap());
-
   factory QuizModel.fromJson(String source) =>
       QuizModel.fromMap(json.decode(source));
+
+  final String title;
+  final String image;
+  final Level level;
+  final List<QuestionModel> questions;
+  final int questionAnswered;
+
+  Map<String, dynamic> toMap() {
+    return {
+      'title': title,
+      'questions': questions.map((question) => question.toMap()).toList(),
+      'questionAnswered': questionAnswered,
+      'image': image,
+      'level': level.levelStringMapping,
+    };
+  }
+
+  String toJson() => json.encode(toMap());
 }

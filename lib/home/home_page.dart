@@ -1,23 +1,24 @@
-import 'package:devquiz/challenge/challenge_page.dart';
 import 'package:flutter/material.dart';
 
-import 'home_controller.dart';
+import 'package:devquiz/challenge/challenge_page.dart';
 import 'package:devquiz/core/core.dart';
 import 'package:devquiz/home/widgets/appbar/app_bar_widget.dart';
 import 'package:devquiz/home/widgets/level_button/level_button_widget.dart';
 import 'package:devquiz/home/widgets/quiz_card/quiz_card_widget.dart';
 
+import 'home_controller.dart';
 import 'home_state.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
-  _HomePageState createState() => _HomePageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
   final controller = HomeController();
+
   @override
   void initState() {
     super.initState();
@@ -31,62 +32,80 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     if (controller.state == HomeState.success) {
+      final labels = ['Easy', 'Middle', 'Hard', 'Expert'];
+
       return Scaffold(
         appBar: AppBarWidget(user: controller.user!),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
             children: [
+              const SizedBox(height: 10),
               SizedBox(
                 height: 32,
-                child: ListView(
+                child: ListView.separated(
+                  itemCount: labels.length,
                   scrollDirection: Axis.horizontal,
+                  separatorBuilder: (context, index) =>
+                      const SizedBox(width: 10),
                   shrinkWrap: true,
-                  children: [
-                    LevelButtonWidget(label: 'Easy'),
-                    SizedBox(width: 10),
-                    LevelButtonWidget(label: 'Middle'),
-                    SizedBox(width: 10),
-                    LevelButtonWidget(label: 'Hard'),
-                    SizedBox(width: 10),
-                    LevelButtonWidget(label: 'Expert'),
-                  ],
+                  itemBuilder: (context, index) {
+                    final label = labels[index];
+                    return LevelButtonWidget(label: label);
+                  },
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 10),
               Expanded(
                 child: GridView.count(
                   crossAxisSpacing: 16,
                   mainAxisSpacing: 16,
                   crossAxisCount: 2,
-                  children: controller.quizzes!.map(
-                    (e) => QuizCardWidget(
-                      title: e.title,
-                      completed: '${e.questionAnswered}/${e.questions.length}',
-                      onTap: (){
-                        Navigator.push(context, MaterialPageRoute(
-                          builder: (context) => ChallengePage(
-                            title: e.title,
-                            questions: e.questions, 
-                          ),
-                        ));
-                      },
-                      percent: e.questionAnswered / e.questions.length, 
-                      image: e.image,
-                    ),
-                  ).toList(),
+                  children: controller.quizzes?.map(
+                        (quiz) {
+                          final questionAnswered = quiz.questionAnswered;
+                          final questionLength = quiz.questions.length;
+                          final percent = questionAnswered / questionLength;
+                          final title = quiz.title;
+                          final questions = quiz.questions;
+                          final image = quiz.image;
+                          final completed =
+                              '${questionAnswered}/${questionLength}';
+
+                          return QuizCardWidget(
+                            image: image,
+                            title: title,
+                            percent: percent,
+                            completed: completed,
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => ChallengePage(
+                                    title: title,
+                                    questions: questions,
+                                  ),
+                                ),
+                              );
+                            },
+                          );
+                        },
+                      ).toList() ??
+                      [],
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
             ],
           ),
         ),
       );
     } else {
-      return Scaffold(
+      return const Scaffold(
         body: Center(
           child: CircularProgressIndicator(
-            valueColor: AlwaysStoppedAnimation<Color>(AppColors.darkGreen),
+            valueColor: AlwaysStoppedAnimation<Color>(
+              AppColors.darkGreen,
+            ),
           ),
         ),
       );
