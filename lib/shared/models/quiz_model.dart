@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:devquiz/shared/enums/level_enum.dart';
-import 'package:devquiz/shared/extensions/level_extension.dart';
 import 'package:devquiz/shared/extensions/level_string_extension.dart';
 
 import 'question_model.dart';
@@ -44,7 +43,7 @@ class QuizModel {
       'questions': questions.map((question) => question.toMap()).toList(),
       'questionAnswered': questionAnswered,
       'image': image,
-      'level': level.levelStringMapping,
+      'level': level.name,
     };
   }
 

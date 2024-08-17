@@ -3,7 +3,7 @@
     "short_name": "devquiz",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#04D361",
+    "background_color": "#0175C2",
     "theme_color": "#0175C2",
     "description": "A new Flutter project.",
     "orientation": "portrait-primary",

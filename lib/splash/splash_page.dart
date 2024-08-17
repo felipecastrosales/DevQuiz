@@ -12,10 +12,14 @@ class SplashPage extends StatelessWidget {
     Future.delayed(
       const Duration(seconds: 2),
     ).then(
-      (_) => Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => const HomePage()),
-      ),
+      (_) {
+        if (context.mounted) {
+          return Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => const HomePage()),
+          );
+        }
+      },
     );
 
     return Scaffold(
